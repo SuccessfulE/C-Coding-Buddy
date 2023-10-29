@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace IT391U3A
 {
@@ -16,7 +17,7 @@ namespace IT391U3A
             Console.WriteLine("Sorting NFL Positions");
             Console.WriteLine();
 
-            String[] professions = new string[] { "Quarterback", "Offesnive Linemen", "Running Back", "Fullback", "Tight End", "Wide Receiver" };
+            String[] professions = new string[] { "Quarterback", "Offensive Linemen", "Running Back", "Fullback", "Tight End", "Wide Receiver" };
             String[] defenseP = new string[] { "Defense Linemen", "Linebacker", "Cornerback", "Safety"};
             String[] specialP = new string[] { "Kicker", "Punter", "Kick Returner", "Punt Returner", "Long Snapper"};
 
@@ -24,24 +25,27 @@ namespace IT391U3A
             HashSet<String> PositionD = new HashSet<String>();
             HashSet<String> PositionS = new HashSet<String>();
 
+            Method("Offensive Positions: ", professions);
+            Method("Defense Positions: ", defenseP);
+            Method("Special Positions: ", specialP);
 
-            try
+            static void Method(string name, string[] pPostitions)
             {
-                for (int i = 0; i <= professions.GetUpperBound(0); i++)
+                HashSet<String> setprofessions = new HashSet<String>();
+                for (int i = 0; i <= pPostitions.GetUpperBound(0); i++)
                 {
-                    setprofessions.Add(professions[i]);
-                    PositionD.Add(defenseP[i]);
-                    PositionS.Add(specialP[i]);
+                    setprofessions.Add(pPostitions[i]);
                 }
-                Console.WriteLine("Original List: ");
+                Console.WriteLine();
+                Console.WriteLine(name + "Original List: ");
                 Console.Write("[");
-
-                for (int i = 0; i <= professions.GetUpperBound(0); i++)
+                for (int i = 0; i <= pPostitions.GetUpperBound(0); i++)
                 {
-                    Console.Write(professions[i]);
-                    if (i == professions.GetUpperBound(0))
+                    Console.Write(pPostitions[i]);
+                    if (i == pPostitions.GetUpperBound(0))
                     {
                         Console.Write("]");
+                        Console.WriteLine();
                     }
                     else
                     {
@@ -49,12 +53,8 @@ namespace IT391U3A
                     }
                 }
                 Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("Sorted List: ");
+                Console.WriteLine(name + "Sorted List: ");
                 SortedSet<String> sortedProfessions = new SortedSet<string>(setprofessions);
-                SortedSet<String> SortedD = new SortedSet<string>(setprofessions);
-                SortedSet<String> SortedS = new SortedSet<string>(setprofessions);
-
                 Console.Write("[");
                 int j = 0;
                 foreach (string job in sortedProfessions)
@@ -65,10 +65,7 @@ namespace IT391U3A
                     j++;
                 }
                 Console.Write("]");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message.ToString());
+                Console.WriteLine();
             }
 
 
