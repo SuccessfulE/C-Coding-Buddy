@@ -95,45 +95,45 @@ namespace CodingBuddyAssignment
             Console.WriteLine("Sorting NFL Teams");
             Console.WriteLine();
 
-            List<String> lstbooks = new List<String>();
-            lstbooks.Add("To Kill a Mockingbird");
-            lstbooks.Add("Huckleberry Finn");
-            lstbooks.Add("Pride and Prejudice");
-            lstbooks.Add("Brave New World");
-            lstbooks.Add("Lord of the Flies");
-            lstbooks.Add("Alice in Wonderland");
-            lstbooks.Add("The Old Man and the Sea");
-            lstbooks.Add("Atlas Shrugged");
+            List<String> lstteams = new List<String>();
+            lstteams.Add("Jets");
+            lstteams.Add("Steelers");
+            lstteams.Add("Ravens");
+            lstteams.Add("Broncos");
+            lstteams.Add("Rams");
+            lstteams.Add("Jaguars");
+            lstteams.Add("Giants");
+            lstteams.Add("Bills");
 
-            Console.WriteLine("Original Book List: ");
-            DisplayList(lstbooks);
+            Console.WriteLine("Original Team List: ");
+            DisplayList(lstteams);
             Console.WriteLine();
 
-            lstbooks.Sort(); //sort the list
+            lstteams.Sort(); //sort the list
 
-            Console.WriteLine("Sorted Book List: ");
-            DisplayList(lstbooks);
+            Console.WriteLine("Sorted Team List: ");
+            DisplayList(lstteams);
             Console.WriteLine();
 
-            lstbooks.RemoveAt(1);//remove second item from list
-            lstbooks.RemoveAt(0); //remove first item from list
-            lstbooks.RemoveAt(lstbooks.Count() - 1);//remove last item from list
+            lstteams.RemoveAt(1);//remove second item from list
+            lstteams.RemoveAt(0); //remove first item from list
+            lstteams.RemoveAt(lstteams.Count() - 1);//remove last item from list
 
-            Console.WriteLine("Book List After Deletions: ");
-            DisplayList(lstbooks);
+            Console.WriteLine("Team List After Deletions: ");
+            DisplayList(lstteams);
             Console.WriteLine();
 
-            Console.Write("The number of items in my book list is: " + lstbooks.Count + "\n");
+            Console.Write("The number of items in my team list is: " + lstteams.Count + "\n");
             Console.WriteLine();
 
-            int index = lstbooks.IndexOf("Brave New World"); //look for this title
+            int index = lstteams.IndexOf("Jets"); //look for this title
             if (index != -1)
             {
-                Console.WriteLine("Brave New World is in the list.");
+                Console.WriteLine("Jets are in the list.");
             }
             else
             {
-                Console.WriteLine("Brave New World is not in the list.");
+                Console.WriteLine("Jets are not in the list.");
             }
 
             static void DisplayList(List<String> lst)
