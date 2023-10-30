@@ -15,30 +15,51 @@ namespace IT391U3A
         {
             //Sorting NFL Positions
             Console.WriteLine("Sorting NFL Positions");
-            Console.WriteLine();
 
+            //Player position offensive, defensive, special
             String[] professions = new string[] { "Quarterback", "Offensive Linemen", "Running Back", "Fullback", "Tight End", "Wide Receiver" };
             String[] defenseP = new string[] { "Defense Linemen", "Linebacker", "Cornerback", "Safety"};
             String[] specialP = new string[] { "Kicker", "Punter", "Kick Returner", "Punt Returner", "Long Snapper"};
+            
+            //Calling the sorting method for positions
+            SortingMethod("Offensive Positions: ", professions);
+            SortingMethod("Defense Positions: ", defenseP);
+            SortingMethod("Special Positions: ", specialP);
 
-            HashSet<String> setprofessions = new HashSet<String>();
-            HashSet<String> PositionD = new HashSet<String>();
-            HashSet<String> PositionS = new HashSet<String>();
+            Console.WriteLine();
+            Console.WriteLine("Randomly Selected Positions To Bet On");
+            //Calling the random select method to select a random position.
+            rString("Random Offensive Position: ",professions);
+            rString("Random Defensive Position: ", defenseP);
+            rString("Random Special Position: ", specialP);
 
-            Method("Offensive Positions: ", professions);
-            Method("Defense Positions: ", defenseP);
-            Method("Special Positions: ", specialP);
-
-            static void Method(string name, string[] pPostitions)
+            //Random method
+            static void rString(string pname, string[] random)
             {
-                HashSet<String> setprofessions = new HashSet<String>();
+                //Creating random
+                Random rnd = new Random();
+                //Selecting word from string
+                int wSelect = rnd.Next(random.Length);
+                //Printing out string
+                Console.WriteLine($"{pname}{random[wSelect]}");
+            }
+
+            static void SortingMethod(string pname, string[] pPostitions)
+            {
+                //Hashset to set positions
+                HashSet<String> setPositions = new HashSet<String>();
+
+                //For loop for positions to print
                 for (int i = 0; i <= pPostitions.GetUpperBound(0); i++)
                 {
-                    setprofessions.Add(pPostitions[i]);
+                    setPositions.Add(pPostitions[i]);
                 }
+
                 Console.WriteLine();
-                Console.WriteLine(name + "Original List: ");
+                Console.WriteLine(pname + "Original List: ");
                 Console.Write("[");
+
+                //For loop to print original list
                 for (int i = 0; i <= pPostitions.GetUpperBound(0); i++)
                 {
                     Console.Write(pPostitions[i]);
@@ -53,14 +74,20 @@ namespace IT391U3A
                     }
                 }
                 Console.WriteLine();
-                Console.WriteLine(name + "Sorted List: ");
-                SortedSet<String> sortedProfessions = new SortedSet<string>(setprofessions);
+
+                //Printing Sorted List
+                Console.WriteLine(pname + "Sorted List: ");
+
+                //New string set for sorted positions.
+                SortedSet<String> sortedPositions = new SortedSet<string>(setPositions);
                 Console.Write("[");
                 int j = 0;
-                foreach (string job in sortedProfessions)
+
+                //foreach method to print professions in order.
+                foreach (string job in sortedPositions)
                 {
                     Console.Write(job);
-                    if (j != sortedProfessions.Count() - 1)
+                    if (j != sortedPositions.Count() - 1)
                         Console.Write(", ");
                     j++;
                 }
