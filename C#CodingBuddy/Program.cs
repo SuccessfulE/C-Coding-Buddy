@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 
-namespace IT391U3A
+namespace CodingBuddyAssignment
 {
-    class U3PartA
+    class CodingAssignment
     {
         static void Main(string[] args)
         {
