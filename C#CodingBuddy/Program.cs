@@ -92,7 +92,7 @@ namespace CodingBuddyAssignment
             //Sorting NFL Teams
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("Sorting NFL Teams");
+            Console.WriteLine("NFL Teams");
             Console.WriteLine();
 
             List<String> lstteams = new List<String>();
